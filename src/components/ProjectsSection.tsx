@@ -4,54 +4,50 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
+    title: "One Stop Frontend",
+    description:
+    "An all‑in‑one frontend toolkit that demonstrates modern UI patterns and responsive layouts. It emphasises clean component architecture, modular styling, and accessibility best practices. The project was built with reusability in mind so new pages can be added with minimal effort.",
+    tech: ["REACT", "Tailwind", "node", "express", "MongoDB"],
+    github: "https://github.com/HassaanJaved-Git/one-stop-frontend",
+    featured: false,
+    live: "https://one-stop-frontend.onrender.com/",
+  },
+  {
     title: "Eventify",
     description:
-      "A full-stack event management platform where users can create, browse, and manage events. Built with a clean UI and robust backend API.",
+      "A full-stack event management platform allowing users to create, browse, register and manage events. The frontend offers a clean, responsive interface while the backend provides a secure REST API with authentication and data persistence. Built using a modern JavaScript stack, it handles real-time updates and scalable data storage.",
     tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/HassaanJaved-Git/Eventify",
     featured: true,
+    live: "", 
   },
   {
-    title: "Shompo",
+    title: "Umrahrides",
     description:
-      "An e-commerce style web application with product listings, cart functionality, and a responsive user interface.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/HassaanJaved-Git/Shompo",
-    featured: true,
-  },
-  {
-    title: "One Stop Frontend",
-    description:
-      "A frontend project showcasing modern UI patterns, responsive layouts, and clean component architecture.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/HassaanJaved-Git/one-stop-frontend",
+    "A transportation service tailored for pilgrims performing Umrah, simplifying the booking of rides and route planning. It features a user-friendly interface and real-time location tracking. The responsive design ensures it works well on both mobile and desktop, helping users coordinate travel during the pilgrimage.",
+    tech: ["React", "tailwind"],
+    github: "https://github.com/HassaanJaved-Git/umrahrides",
     featured: false,
+    live: "https://umrahrides.com/",
   },
-  {
-    title: "To-Do List (MERN)",
-    description:
-      "A full-stack MERN to-do application — first MERN stack project with complete CRUD operations and persistent storage.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/HassaanJaved-Git/to-do-list",
-    featured: false,
-  },
+
 ];
 
 const ProjectsSection = () => {
-  const featured = projects.filter((p) => p.featured);
-  const other = projects.filter((p) => !p.featured);
+  // no separate sections needed; render all projects
 
   return (
     <section id="projects" className="py-24">
       <div className="section-container">
         <SectionHeading number="03" title="Things I've Built" />
 
-        {/* Featured */}
-        <div className="space-y-20 mb-20">
-          {featured.map((project, i) => (
-            <ScrollReveal key={project.title} delay={0.1} direction={i % 2 === 0 ? "left" : "right"}>
+        <div className="space-y-20">
+          {projects.map((project, i) => (
+            <ScrollReveal key={project.title} delay={0.1 * i} direction={i % 2 === 0 ? "left" : "right"}>
               <div className="glass-card p-8 hover-glow">
-                <p className="font-mono text-xs text-primary mb-2">Featured Project</p>
+                {project.featured && (
+                  <p className="font-mono text-xs text-primary mb-2">Featured Project</p>
+                )}
                 <h3 className="text-2xl font-bold text-foreground mb-4">{project.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-3 mb-6">
@@ -70,39 +66,16 @@ const ProjectsSection = () => {
                   >
                     <Github size={20} />
                   </a>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Other */}
-        <ScrollReveal>
-          <h3 className="text-xl font-semibold text-foreground text-center mb-8">Other Noteworthy Projects</h3>
-        </ScrollReveal>
-        <div className="grid md:grid-cols-2 gap-4">
-          {other.map((project, i) => (
-            <ScrollReveal key={project.title} delay={i * 0.1}>
-              <div className="glass-card p-6 hover-glow h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-primary text-2xl">📁</span>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github size={18} />
-                  </a>
-                </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">{project.title}</h4>
-                <p className="text-muted-foreground text-sm mb-4 flex-1 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span key={t} className="font-mono text-xs text-muted-foreground">
-                      {t}
-                    </span>
-                  ))}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
                 </div>
               </div>
             </ScrollReveal>

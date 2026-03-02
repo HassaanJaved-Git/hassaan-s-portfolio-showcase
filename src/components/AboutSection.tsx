@@ -21,7 +21,7 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-3 gap-12">
           <ScrollReveal className="md:col-span-2 space-y-4" delay={0.1}>
             <p className="text-muted-foreground leading-relaxed">
-              Hey! I'm Hassaan, a passionate Full Stack Developer with around 8–10 months of hands-on experience
+              Hey! I'm Hassaan, a passionate Full Stack Developer with around 1 year of hands-on experience
               building web applications. I love turning ideas into real, functional products that people actually enjoy using.
             </p>
             <p className="text-muted-foreground leading-relaxed">

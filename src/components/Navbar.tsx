@@ -28,7 +28,7 @@ const Navbar = () => {
     >
       <div className="section-container flex items-center justify-between h-16">
         <a href="#" className="font-mono text-sm font-semibold text-primary tracking-wider">
-          {"<HJ />"}
+          {"<Hassaan Javed />"}
         </a>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link, i) => (
@@ -45,8 +45,8 @@ const Navbar = () => {
             </motion.a>
           ))}
           <motion.a
-            href="/Hassaan_Javed_Resume.pdf"
-            target="_blank"
+            href="/Hassaan Javed MERN Stack .pdf"
+            download
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
