@@ -45,7 +45,12 @@ const AboutSection = () => {
             <div className="relative group">
               <div className="rounded-lg overflow-hidden border-2 border-primary/20 group-hover:border-primary/40 transition-colors duration-300">
                 <div className="aspect-square bg-secondary flex items-center justify-center">
-                  <span className="text-6xl font-bold text-gradient">HJ</span>
+                  {/* use the project's favicon as the avatar image */}
+                  <img
+                    src="/favicon.ico"
+                    alt="logo"
+                    className="w-100 h-100 object-contain"
+                  />
                 </div>
               </div>
               <div className="absolute inset-0 border-2 border-primary rounded-lg translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300" />
