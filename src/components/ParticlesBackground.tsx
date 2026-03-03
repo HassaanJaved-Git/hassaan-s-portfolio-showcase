@@ -1,12 +1,20 @@
 import { useMemo, useEffect } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadFull } from "tsparticles";
+// we're using the slim bundle in production to keep the build small
+// `loadFull` comes from the full `tsparticles` package which isn't installed
+// in this repo, so the Vercel build couldn't resolve it. switching to the
+// slim loader prevents the rollup error and still delivers the features we
+// need.
+import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
   // ensure engine loads full build once on mount
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadFull(engine);
+      // the slim loader automatically pulls in the subset of plugins
+      // we're actually using. it's what we installed in package.json, so
+      // the bundler can resolve it during the Vercel build.
+      await loadSlim(engine);
     });
   }, []);
 
