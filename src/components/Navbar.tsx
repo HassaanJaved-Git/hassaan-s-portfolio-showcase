@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "./NavLink";
+import { useLanguage, availableLanguages } from "../i18n";
 
+// nav label texts are hardcoded per requirement
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
@@ -12,6 +14,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { language: lang, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -63,6 +66,21 @@ const Navbar = () => {
           >
             Resume
           </motion.a>
+          {/* language selector */}
+          <select
+            value={lang}
+            onChange={(e) => {
+              const newLang = e.target.value as typeof lang;
+              setLanguage(newLang);
+            }}
+            className="ml-4 font-mono text-xs border border-primary text-primary px-2 py-1 rounded bg-background/20"
+          >
+            {availableLanguages.map((l) => (
+              <option key={l} value={l}>
+                {l.toUpperCase()}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </motion.nav>

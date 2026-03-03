@@ -1,6 +1,7 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
-
+import { useLanguage } from "../i18n";
+import { t } from "../i18n";
 const skillCategories = [
   {
     title: "Frontend",
@@ -17,10 +18,11 @@ const skillCategories = [
 ];
 
 const SkillsSection = () => {
+  const { language } = useLanguage();
   return (
     <section id="skills" className="py-24">
       <div className="section-container">
-        <SectionHeading number="02" title="Skills & Tools" />
+        <SectionHeading number="02" title={t("skills.heading")} />
 
         <div className="grid md:grid-cols-3 gap-6">
           {skillCategories.map((cat, i) => (

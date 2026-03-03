@@ -1,5 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
+import { t, useLanguage } from "../i18n";
 
 const technologies = [
   "JavaScript (ES6+)",
@@ -13,24 +14,22 @@ const technologies = [
 ];
 
 const AboutSection = () => {
+  const { language } = useLanguage();
   return (
     <section id="about" className="py-24">
       <div className="section-container">
-        <SectionHeading number="01" title="About Me" />
+        <SectionHeading number="01" title={t("about.heading")} />
 
         <div className="grid md:grid-cols-3 gap-12">
           <ScrollReveal className="md:col-span-2 space-y-4" delay={0.1}>
             <p className="text-muted-foreground leading-relaxed">
-              Hey! I'm Hassaan, a passionate Full Stack Developer with around 1 year of hands-on experience
-              building web applications. I love turning ideas into real, functional products that people actually enjoy using.
+              {t("about.p1")}
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              My journey started with curiosity about how websites work under the hood, which quickly evolved into
-              building full-stack apps using the <span className="text-primary">MERN stack</span>. From crafting
-              responsive frontends to designing RESTful APIs and managing databases — I enjoy every layer of the process.
+              {t("about.p2")}
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Here are a few technologies I've been working with recently:
+              {t("about.p3")}
             </p>
             <ul className="grid grid-cols-2 gap-2 font-mono text-sm">
               {technologies.map((tech) => (

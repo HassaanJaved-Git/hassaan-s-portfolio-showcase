@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { t, useLanguage } from "../i18n";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const { language } = useLanguage();
   return (
     <section className="min-h-screen flex items-center relative" id="hero">
       <div className="section-container py-32">
@@ -11,7 +14,7 @@ const HeroSection = () => {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="font-mono text-sm text-primary mb-5"
         >
-          Hi, my name is
+          {t("hero.intro")}
         </motion.p>
 
         <motion.h1
@@ -20,7 +23,7 @@ const HeroSection = () => {
           transition={{ delay: 0.75, duration: 0.5 }}
           className="text-5xl md:text-7xl font-bold text-foreground mb-3 leading-tight"
         >
-          Hassaan Javed.
+          {t("hero.heading1")}
         </motion.h1>
 
         <motion.h2
@@ -29,7 +32,7 @@ const HeroSection = () => {
           transition={{ delay: 0.9, duration: 0.5 }}
           className="text-4xl md:text-6xl font-bold text-muted-foreground mb-8 leading-tight"
         >
-          I build things for the web.
+          {t("hero.heading2")}
         </motion.h2>
 
         <motion.p
@@ -38,9 +41,7 @@ const HeroSection = () => {
           transition={{ delay: 1.05, duration: 0.5 }}
           className="text-muted-foreground max-w-lg text-lg mb-12 leading-relaxed"
         >
-          Full Stack Developer specializing in building robust, scalable web applications.
-          Currently focused on the{" "}
-          <span className="text-primary">MERN stack</span> and crafting seamless digital experiences.
+          {t("hero.paragraph")}        
         </motion.p>
 
         <motion.div
@@ -49,12 +50,12 @@ const HeroSection = () => {
           transition={{ delay: 1.2, duration: 0.5 }}
           className="flex items-center gap-5"
         >
-          <a
-            href="#projects"
+          <Link
+            to="/projects"
             className="font-mono text-sm border border-primary text-primary px-8 py-3 rounded hover:bg-primary/10 transition-colors duration-200"
           >
-            View My Work
-          </a>
+            {t("hero.viewWork")}
+          </Link>
           <div className="flex items-center gap-4 ml-4">
             <a
               href="https://github.com/HassaanJaved-Git"
