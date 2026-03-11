@@ -59,7 +59,7 @@ const Navbar = () => {
             </motion.div>
           ))}
           <a
-            href="/Hassaan Javed MERN Stack .pdf"
+            href="/Hassaan_Javed_MERN_Stack.pdf"
             download="Hassaan_Javed_MERN_Stack.pdf"
             className="font-mono text-xs border border-primary text-primary px-4 py-2 rounded hover:bg-primary/10 transition-colors duration-200 flex items-center gap-1"
           >
