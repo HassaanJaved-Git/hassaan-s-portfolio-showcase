@@ -4,6 +4,14 @@ import { Github, ExternalLink } from "lucide-react";
 import { t, useLanguage } from "../i18n";
 
 const projects = [
+    {
+    title: "Oxygym",
+    descriptionKey: "projects.descriptions.oxygym",
+    tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
+    github: "https://github.com/Muhammad-Shehroz046/oxygym",
+    featured: true,
+    live: "https://oxygym.onrender.com", 
+  },
   {
     title: "One Stop Frontend",
     descriptionKey: "projects.descriptions.oneStopFrontend",
@@ -11,14 +19,6 @@ const projects = [
     github: "https://github.com/HassaanJaved-Git/one-stop-frontend",
     featured: false,
     live: "https://one-stop-frontend.onrender.com/",
-  },
-  {
-    title: "Oxygym",
-    descriptionKey: "projects.descriptions.oxygym",
-    tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/Muhammad-Shehroz046/oxygym",
-    featured: true,
-    live: "https://oxygym.onrender.com", 
   },
   {
     title: "EasyTurf",
