@@ -5,14 +5,6 @@ import { t, useLanguage } from "../i18n";
 
 const projects = [
     {
-    title: "Oxygym",
-    descriptionKey: "projects.descriptions.oxygym",
-    tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/Muhammad-Shehroz046/oxygym",
-    featured: true,
-    live: "https://oxygym.onrender.com", 
-  },
-  {
     title: "One Stop Frontend",
     descriptionKey: "projects.descriptions.oneStopFrontend",
     tech: ["REACT", "Tailwind", "node", "express", "MongoDB"],
@@ -28,6 +20,15 @@ const projects = [
     featured: false,
     live: "https://easyturf.onrender.com",
   },
+    {
+    title: "Oxygym",
+    descriptionKey: "projects.descriptions.oxygym",
+    tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
+    github: "https://github.com/Muhammad-Shehroz046/oxygym",
+    featured: true,
+    live: "https://oxygym.onrender.com", 
+  },
+
 
 ];
 
