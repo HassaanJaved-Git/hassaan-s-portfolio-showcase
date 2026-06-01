@@ -21,8 +21,8 @@
     "otherHeading": "Other Noteworthy Projects",
     "descriptions": {
       "oneStopFrontend": "An all‑in‑one frontend toolkit that demonstrates modern UI patterns and responsive layouts. It emphasises clean component architecture, modular styling, and accessibility best practices. The project was built with reusability in mind so new pages can be added with minimal effort.",
-      "eventify": "A full-stack event management platform allowing users to create, browse, register and manage events. The frontend offers a clean, responsive interface while the backend provides a secure REST API with authentication and data persistence. Built using a modern JavaScript stack, it handles real-time updates and scalable data storage.",
-      "umrahrides": "A transportation service tailored for pilgrims performing Umrah, simplifying the booking of rides and route planning. It features a user-friendly interface and real-time location tracking. The responsive design ensures it works well on both mobile and desktop, helping users coordinate travel during the pilgrimage."
+      "oxygym": "A full-stack gym management application that allows users to book classes, track workouts, and manage memberships. The frontend is built with React, while the backend uses Node.js and Express, with MongoDB for data storage. It features a user-friendly interface and real-time updates for class availability.",
+      "easyturf": "EasyTurf is a platform designed to simplify the process of booking and managing turf fields for sports enthusiasts."
     }
   },
   "contact": {

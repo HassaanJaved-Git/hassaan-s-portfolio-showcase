@@ -13,20 +13,20 @@ const projects = [
     live: "https://one-stop-frontend.onrender.com/",
   },
   {
-    title: "Eventify",
-    descriptionKey: "projects.descriptions.eventify",
+    title: "Oxygym",
+    descriptionKey: "projects.descriptions.oxygym",
     tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/HassaanJaved-Git/Eventify",
+    github: "https://github.com/Muhammad-Shehroz046/oxygym",
     featured: true,
-    live: "", 
+    live: "https://oxygym.onrender.com", 
   },
   {
-    title: "Umrahrides",
-    descriptionKey: "projects.descriptions.umrahrides",
+    title: "EasyTurf",
+    descriptionKey: "projects.descriptions.easyturf",
     tech: ["React", "tailwind"],
-    github: "https://github.com/HassaanJaved-Git/umrahrides",
+    github: "https://github.com/HassaanJaved-Git/EasyTurf",
     featured: false,
-    live: "https://umrahrides.com/",
+    live: "https://easyturf.onrender.com",
   },
 
 ];
