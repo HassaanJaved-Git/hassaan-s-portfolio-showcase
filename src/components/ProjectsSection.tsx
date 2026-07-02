@@ -26,7 +26,7 @@ const projects = [
     tech: ["JavaScript", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/Muhammad-Shehroz046/oxygym",
     featured: true,
-    live: "https://oxygym-prod.onrender.com", 
+    // live: "https://oxygym-prod.onrender.com", 
   },
 
 
