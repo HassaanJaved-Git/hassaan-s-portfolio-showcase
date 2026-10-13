@@ -1,1 +1,1 @@
-live at https://hassaan-s-portfolio-showcase.vercel.app/
+live at https://hassaanjaved.online
