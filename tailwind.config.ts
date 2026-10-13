@@ -14,8 +14,31 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: [
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        display: [
+          "Georgia",
+          "Iowan Old Style",
+          "Palatino Linotype",
+          "Times New Roman",
+          "serif",
+        ],
+        mono: [
+          "ui-monospace",
+          "SF Mono",
+          "Cascadia Code",
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,6 +78,15 @@ export default {
         "glow-muted": "hsl(var(--glow-muted))",
         surface: "hsl(var(--surface))",
         "surface-raised": "hsl(var(--surface-raised))",
+        /* Editorial palette aliases */
+        paper: "#FAF6F0",
+        cream: "#FFFDF8",
+        ink: "#1A1611",
+        ember: "#E85D2A",
+        "ember-deep": "#B34A1F",
+        olive: "#293A26",
+        "olive-deep": "#1C2A1B",
+        sand: "#EDE4D3",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

@@ -15,6 +15,12 @@ const navLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
+const linkCls = ({ isActive }: { isActive: boolean }) =>
+  cn(
+    "relative font-mono text-xs transition-colors duration-200 pb-1",
+    isActive ? "text-ember-deep" : "text-ink/60 hover:text-ember-deep"
+  );
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,7 +28,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,16 +37,19 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || menuOpen ? "bg-background/80 backdrop-blur-md border-b border-border" : ""
-      }`}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled || menuOpen
+          ? "bg-paper/85 backdrop-blur-md border-b border-ink/10 shadow-[0_8px_24px_-16px_rgba(26,22,17,0.25)]"
+          : "bg-transparent"
+      )}
     >
       <div className="section-container flex items-center justify-between h-16">
         <RouterNavLink
           to="/"
-          className="font-mono text-sm font-semibold text-primary tracking-wider"
+          className="font-display italic text-lg text-ink hover:text-ember-deep transition-colors"
         >
-          {"<Hassaan Javed />"}
+          Hassaan Javed
         </RouterNavLink>
 
         {/* Desktop nav */}
@@ -52,23 +61,15 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.3 }}
             >
-              <RouterNavLink
-                to={link.to}
-                className={({ isActive }) =>
-                  cn(
-                    "relative font-mono text-xs transition-colors duration-200 pb-1",
-                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
-                  )
-                }
-              >
+              <RouterNavLink to={link.to} className={linkCls}>
                 {({ isActive }) => (
                   <>
-                    <span className="text-primary mr-1">0{i + 1}.</span>
+                    <span className="text-ember-deep/70 mr-1">0{i + 1}.</span>
                     {link.label}
                     {isActive && (
                       <motion.span
                         layoutId="nav-underline"
-                        className="absolute left-0 right-0 -bottom-0.5 h-px bg-primary"
+                        className="absolute left-0 right-0 -bottom-0.5 h-0.5 rounded-full bg-ember"
                         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       />
                     )}
@@ -80,7 +81,7 @@ const Navbar = () => {
           <a
             href="/Hassaan_Javed_MERN_Stack.pdf"
             download="Hassaan_Javed_MERN_Stack.pdf"
-            className="font-mono text-xs border border-primary text-primary px-4 py-2 rounded hover:bg-primary/10 transition-colors duration-200 flex items-center gap-1"
+            className="font-mono text-xs border border-ink/20 text-ink px-4 py-2 rounded-full hover:border-ember hover:text-ember-deep transition-colors duration-200 flex items-center gap-1.5"
           >
             <FileText size={13} />
             Download CV
@@ -92,10 +93,11 @@ const Navbar = () => {
               const newLang = e.target.value as typeof lang;
               setLanguage(newLang);
             }}
-            className="ml-4 font-mono text-xs border border-primary text-primary px-2 py-1 rounded bg-background/20"
+            aria-label="Language"
+            className="ml-2 font-mono text-xs border border-ink/20 text-ink px-2 py-1.5 rounded-full bg-transparent cursor-pointer"
           >
             {availableLanguages.map((l) => (
-              <option key={l} value={l}>
+              <option key={l} value={l} className="bg-paper">
                 {l.toUpperCase()}
               </option>
             ))}
@@ -104,7 +106,7 @@ const Navbar = () => {
 
         {/* Mobile hamburger button */}
         <button
-          className="md:hidden text-primary p-2"
+          className="md:hidden text-ink p-2"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -120,7 +122,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-border"
+            className="md:hidden overflow-hidden bg-paper/95 backdrop-blur-md border-b border-ink/10"
           >
             <div className="section-container flex flex-col gap-4 py-6">
               {navLinks.map((link, i) => (
@@ -131,18 +133,18 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     cn(
                       "font-mono text-sm transition-colors duration-200",
-                      isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                      isActive ? "text-ember-deep" : "text-ink/60 hover:text-ember-deep"
                     )
                   }
                 >
-                  <span className="text-primary mr-1">0{i + 1}.</span>
+                  <span className="text-ember-deep/70 mr-1">0{i + 1}.</span>
                   {link.label}
                 </RouterNavLink>
               ))}
               <a
                 href="/Hassaan_Javed_MERN_Stack.pdf"
                 download="Hassaan_Javed_MERN_Stack.pdf"
-                className="font-mono text-sm border border-primary text-primary px-4 py-2 rounded hover:bg-primary/10 transition-colors duration-200 flex items-center gap-1 w-fit"
+                className="font-mono text-sm border border-ink/20 text-ink px-4 py-2 rounded-full hover:border-ember hover:text-ember-deep transition-colors duration-200 flex items-center gap-1.5 w-fit"
                 onClick={() => setMenuOpen(false)}
               >
                 <FileText size={14} />
@@ -155,10 +157,11 @@ const Navbar = () => {
                   setLanguage(newLang);
                   setMenuOpen(false);
                 }}
-                className="font-mono text-sm border border-primary text-primary px-2 py-1 rounded bg-background/20 w-fit"
+                aria-label="Language"
+                className="font-mono text-sm border border-ink/20 text-ink px-2 py-1.5 rounded-full bg-transparent w-fit"
               >
                 {availableLanguages.map((l) => (
-                  <option key={l} value={l}>
+                  <option key={l} value={l} className="bg-paper">
                     {l.toUpperCase()}
                   </option>
                 ))}

@@ -54,17 +54,18 @@ const ParticlesBackground = () => {
         },
       },
       particles: {
-        color: { value: "#2dd4a8" },
+        // warm taupe dots, barely-there on the paper background
+        color: { value: "#a08c6f" },
         links: {
-          color: "#2dd4a8",
-          distance: 100,
+          color: "#a08c6f",
+          distance: 110,
           enable: true,
-          opacity: 0.08,
+          opacity: 0.06,
           width: 1,
         },
         move: {
           enable: true,
-          speed: 0.5,          // slower baseline movement for a gentler feel
+          speed: 0.35,          // slow drift for a calm feel
           direction: "none" as const,
           random: true,
           straight: true,
@@ -72,10 +73,10 @@ const ParticlesBackground = () => {
         },
         number: {
           density: { enable: true },
-          value: 400, 
+          value: 130,
         },
         opacity: {
-          value: { min: 0.001, max: 0.005 },
+          value: { min: 0.02, max: 0.07 },
         },
         shape: { type: "circle" },
         size: {
