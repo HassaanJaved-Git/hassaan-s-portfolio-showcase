@@ -22,7 +22,7 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-24">
       <div className="section-container">
-        <SectionHeading number="02" title={t("skills.heading")} />
+        <SectionHeading number="04" title={t("skills.heading")} />
 
         <div className="grid md:grid-cols-3 gap-6">
           {skillCategories.map((cat, i) => (

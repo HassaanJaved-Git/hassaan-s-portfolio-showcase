@@ -18,7 +18,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24">
       <div className="section-container">
-        <SectionHeading number="01" title={t("about.heading")} />
+        <SectionHeading number="03" title={t("about.heading")} />
 
         <div className="grid md:grid-cols-3 gap-12">
           <ScrollReveal className="md:col-span-2 space-y-4" delay={0.1}>

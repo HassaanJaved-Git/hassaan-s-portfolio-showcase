@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Menu, X } from "lucide-react";
-import { NavLink } from "./NavLink";
+import { NavLink as RouterNavLink } from "react-router-dom";
 import { useLanguage, availableLanguages } from "../i18n";
+import { cn } from "@/lib/utils";
 
 // nav label texts are hardcoded per requirement
 const navLinks = [
   { label: "Home", to: "/" },
+  { label: "Services", to: "/services" },
+  { label: "Projects", to: "/projects" },
   { label: "About", to: "/about" },
   { label: "Skills", to: "/skills" },
-  { label: "Projects", to: "/projects" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -24,7 +26,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -35,12 +36,12 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16">
-        <NavLink
+        <RouterNavLink
           to="/"
           className="font-mono text-sm font-semibold text-primary tracking-wider"
         >
           {"<Hassaan Javed />"}
-        </NavLink>
+        </RouterNavLink>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
@@ -51,14 +52,29 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.3 }}
             >
-              <NavLink
+              <RouterNavLink
                 to={link.to}
-                className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors duration-200"
-                activeClassName="text-primary"
+                className={({ isActive }) =>
+                  cn(
+                    "relative font-mono text-xs transition-colors duration-200 pb-1",
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  )
+                }
               >
-                <span className="text-primary mr-1">0{i + 1}.</span>
-                {link.label}
-              </NavLink>
+                {({ isActive }) => (
+                  <>
+                    <span className="text-primary mr-1">0{i + 1}.</span>
+                    {link.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute left-0 right-0 -bottom-0.5 h-px bg-primary"
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    )}
+                  </>
+                )}
+              </RouterNavLink>
             </motion.div>
           ))}
           <a
@@ -108,16 +124,20 @@ const Navbar = () => {
           >
             <div className="section-container flex flex-col gap-4 py-6">
               {navLinks.map((link, i) => (
-                <NavLink
+                <RouterNavLink
                   key={link.to}
                   to={link.to}
-                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
-                  activeClassName="text-primary"
                   onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      "font-mono text-sm transition-colors duration-200",
+                      isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                    )
+                  }
                 >
                   <span className="text-primary mr-1">0{i + 1}.</span>
                   {link.label}
-                </NavLink>
+                </RouterNavLink>
               ))}
               <a
                 href="/Hassaan_Javed_MERN_Stack.pdf"
